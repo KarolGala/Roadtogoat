@@ -7,12 +7,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
     <!-- stylesheets -->
-    <!-- <link rel="stylesheet" href="{{url_for('static', filename = 'stylesheets/index.css') }}" /> -->
+    <link rel="stylesheet" href="{{url_for('static', filename = 'css/base.css') }}" />
 
     <!-- fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Antonio&display=swap" rel="stylesheet">
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -22,6 +25,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+     <!-- font awsome icons kit -->
+     <script src="https://kit.fontawesome.com/7c6b4f672f.js" crossorigin="anonymous"></script>
+    <!--imports from viewing page  -->
+
+    <script src="{{url_for('static', filename='js/hover.js')}}"></script>
+    {% block link %} {% endblock %}
     <title>{% block title %} {% endblock %}</title>
 </head>
 
@@ -38,10 +47,60 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
+   
+
+        <nav class="navbar navbar-expand-lg ">
+            <div class="d-flex justify-content-between container-fluid ">
+              <div>
+                <a class="navbar-brand" href="#">
+                  <img src="{{url_for('static', filename='icons/koza.png')}}"  width="48" height="48" alt="">
+                </a>
+              </div>
+              <div>
+                <div class="middle-items">
+                  <ul class="navbar-nav">
+                    <li class="nav-item ">
+                      <a class="nav-link text-light" href="#">PLANY TRENINGOWE</a>
+                      
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link text-light" href="#">BLOG</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link disabled" href="#">SKLEP</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="end-items">
+                <ul class="navbar-nav list-group-horizontal">
+                  <li class="nav-item mx-1" >
+                    <a class="nav-link text-light " href="#">
+                      <i class="fa-solid fa-magnifying-glass fa-xl" ></i>
+                    </a>
+                    <span class="name-tag px-1" id="nav-1"> Szukaj</span>
+                  </li>
+                  <li class="nav-item mx-1"   >
+                    <a class="nav-link text-light" href="#">
+                      <i class="fa-solid fa-sun fa-xl"></i>
+                    </a>
+                    <span class="name-tag px-1" id="nav-2">Pro</span>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link text-light" href="#"><i class="fa-solid fa-user-secret fa-xl"></i></a>
+                    <span class="name-tag px-1" id="nav-3"> Zaloguj</span>
+                  </li>
+                  
+                </ul>
+              </div>
+              
+            </div>
+            
+          </nav>
 
     {% block content %} {% endblock %}
 
-    
+
 </body>
 
 </html>
