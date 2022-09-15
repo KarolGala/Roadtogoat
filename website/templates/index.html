@@ -6,10 +6,10 @@
 {% block title %} Road to Greatest Of All Time {% endblock %}
 {% block content %}
 <main>
-  <div class="container-fluid my-5 home-content">
+  <div class="container-fluid my-5 home-content ">
     <div class="row ">
-      <div class="col-lg-6 text-center my-5">
-        <h1 class="">Wyciśnij ze swojego treningu <span >maximum!</span></h1>
+      <div class="col-lg-6 text-center my-auto">
+        <h1 class="">PUSH IT TO THE <span >LIMIT!</span></h1>
         <p class="text-secondary ">Sprawdź nasze darmowe plany treningowe i progresuj szybciej</p>
         <div class="container-fluid">
           <div class="row ">
@@ -25,11 +25,14 @@
           </div>
         </div>        
       </div>
-      <div class="col-lg-6 p-3 video-container text-center">
+      <div class="col-lg-6 p-3 video-container my-auto text-center">
         <iframe  src="https://www.youtube.com/embed/tgbNymZ7vqY">
         </iframe>
       </div>
     </div>
+  </div>
+  <div>
+    <img class=" w-100" src="{{url_for('static', filename='img/cyberline.svg')}}">
   </div>
 </main>
 
