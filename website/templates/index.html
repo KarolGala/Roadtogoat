@@ -6,28 +6,24 @@
 {% block title %} Road to Greatest Of All Time {% endblock %}
 {% block content %}
 <main>
-  <div class="container-fluid my-5 home-content ">
-    <div class="row ">
-      <div class="col-lg-6 text-center my-auto">
-        <h1 class="">PUSH IT TO THE <span >LIMIT!</span></h1>
-        <p class="text-secondary ">Sprawdź nasze darmowe plany treningowe i progresuj szybciej</p>
-        <div class="container-fluid">
-          <div class="row ">
-            <div class="col-md-4">
-              <button type="button" class="btn btn1 btn btn-outline-dark  ">KALISTENIKA</button> 
-            </div>
-            <div class="col-md-4 ">
-              <button type="button" class="btn btn2 btn-outline-dark  ">TRÓJBÓJ</button>
-            </div>
-            <div class="col-md-4">
-              <button type="button" class="btn btn3 btn-outline-dark">HYBRYDA</button>
-            </div>
+  <div class="container-fluid home-content ">
+    <div class="container-fluid text-center my-5">
+      <h1 class="">PUSH IT TO THE <span>LIMIT!</span></h1>
+      <p class="text-secondary ">Sprawdź nasze darmowe plany treningowe i progresuj szybciej</p>
+      <div class="container-fluid">
+        <div class="row ">
+          <div class="col-md-4">
+            <button type="button" class="btn btn1 btn btn-outline-dark" onclick="window.location.href = '/Kalistenika'"> 
+             KALISTENIKA
+            </button>
           </div>
-        </div>        
-      </div>
-      <div class="col-lg-6 p-3 video-container my-auto text-center">
-        <iframe  src="https://www.youtube.com/embed/tgbNymZ7vqY">
-        </iframe>
+          <div class="col-md-4 ">
+            <button type="button" class="btn btn2 btn-outline-dark" onclick="window.location.href = '/Trójbój'">TRÓJBÓJ</button>
+          </div>
+          <div class="col-md-4">
+            <button type="button" class="btn btn3 btn-outline-dark" onclick="window.location.href = '/Hybryda'">HYBRYDA</button>
+          </div>
+        </div>
       </div>
     </div>
   </div>
