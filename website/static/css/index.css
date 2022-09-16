@@ -1,0 +1,96 @@
+
+
+.home-content{
+    font-family: 'Montserrat', sans-serif;
+    padding-top: 50px;
+    padding-bottom: 80px;
+
+ 
+}
+
+.home-content h1{
+    font-size: 36px;
+    background: -webkit-linear-gradient(rgb(255, 255, 255), rgb(244, 244, 244));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-transform: uppercase;
+    font-weight: 800;
+    margin-bottom: 20px;
+ 
+}
+
+.home-content p{
+    font-size: 18px;
+    font-family: 'Orbitron', sans-serif;
+}
+.home-content iframe{
+    width: 80%;
+    height: 300px;
+    border: transparent;
+}
+.home-content .formel{
+display: inline-block;
+}
+
+.home-content h1 span{
+    background: -webkit-linear-gradient(rgb(196, 25, 25), rgb(196, 25, 25));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.home-content button{
+    border: 1px solid rgb(196, 25, 25);
+    color:  rgb(255, 255, 255);
+    font-weight: 600;
+    letter-spacing: 4px;
+    border-radius: 2px;
+    min-width: 100%;
+    padding: 25px;
+    font-size: 15px;
+    
+}
+
+.home-content .btn1{
+
+    background-color: transparent;
+
+}
+.home-content .btn2{
+
+    background-color:transparent;
+
+}
+.home-content .btn3{
+
+    background-color: transparent;
+}
+
+
+@media only screen and (max-width: 770px) {
+    .home-content{
+        padding-top: 0px;
+        padding-bottom: 0px;
+    }
+    .home-content h1{
+        font-size: 36px;
+        
+    }
+    
+    .home-content iframe{
+        width: 90%;
+        height: 120%;
+
+    }
+   .home-content button{
+    margin-bottom: 20px;
+    width: 70vw;
+    padding: 15px;
+   }
+
+    .video-container{
+     margin-bottom: 40px;
+    }
+    
+   
+}
+    

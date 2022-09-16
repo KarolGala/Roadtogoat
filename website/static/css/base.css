@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
+
+body{
+    background-color: #000000 !important;
+}
+
+a {
+    text-decoration: none !important;
+}
+
+.navbar {
+
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 600;
+    background-color: #000000 !important;
+    border-bottom: 1px ,solid , rgb(196, 25, 25);
+ 
+}
+
+
+nav .logo{
+    font-size: 24px;
+    font-weight: 700;
+}
+.nav-item{
+    position: relative;
+}
+
+.name-tag{
+    display: none;
+    position: absolute;
+    top: 130%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: large;
+    border-radius: 3px;
+    color: white;
+}
+
+.nav-item:hover .name-tag{
+    display: block;
+}
+/* on hover plates on navbar  */
+#nav-1{background-color:rgb(0, 123, 255);}
+#nav-2{background-color:rgb(140, 0, 255);}
+#nav-3{background-color:rgb(255, 0, 60);}
+
+
+
+
+
+
+@media only screen and (max-width: 1000px) {
+.middle-items{
+    display: none;
+}
+
+.end-items ul>li{
+    width: 40px;
+  
+}
+
+}
