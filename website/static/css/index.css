@@ -1,7 +1,7 @@
 
 
 .home-content{
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Orbitron', sans-serif;
     padding-top: 50px;
     padding-bottom: 80px;
 
@@ -23,14 +23,8 @@
     font-size: 18px;
     font-family: 'Orbitron', sans-serif;
 }
-.home-content iframe{
-    width: 80%;
-    height: 300px;
-    border: transparent;
-}
-.home-content .formel{
-display: inline-block;
-}
+
+
 
 .home-content h1 span{
     background: -webkit-linear-gradient(rgb(196, 25, 25), rgb(196, 25, 25));
@@ -46,24 +40,10 @@ display: inline-block;
     border-radius: 2px;
     min-width: 100%;
     padding: 25px;
-    font-size: 15px;
-    
+    font-size: 15px;  
 }
 
-.home-content .btn1{
 
-    background-color: transparent;
-
-}
-.home-content .btn2{
-
-    background-color:transparent;
-
-}
-.home-content .btn3{
-
-    background-color: transparent;
-}
 
 
 @media only screen and (max-width: 770px) {
@@ -76,21 +56,11 @@ display: inline-block;
         
     }
     
-    .home-content iframe{
-        width: 90%;
-        height: 120%;
-
-    }
    .home-content button{
     margin-bottom: 20px;
     width: 70vw;
     padding: 15px;
    }
-
-    .video-container{
-     margin-bottom: 40px;
-    }
-    
    
 }
     

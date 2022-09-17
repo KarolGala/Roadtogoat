@@ -1,12 +1,26 @@
 {% extends 'base.html' %}
 {% block link %}
-<link rel="stylesheet" href="{{url_for('static', filename = 'css/index.css') }}" />
+<link rel="stylesheet" href="{{url_for('static', filename = 'css/kategorie/kalistenika.css') }}" />
 
 {% endblock%}
 {% block title %} Road to Greatest Of All Time {% endblock %}
 {% block content %}
 <main>
-  <div class="">
+  <div class="container-fluid my-5">
+    <h1 class="text-center"> Jaki rodzaj planu treningowego cię interesuje?</h1>
+    <div class="container text-center">
+      <div class="row">
+        <div class="col-sm-6">
+          <button type="button" class="btn btn btn-outline-dark" onclick="window.location.href = '/Kalistenika'"> 
+            Push / Pull / Legs
+           </button>
+          
+        </div>
+        <div class="col-sm-6">
+          Full-Body 
+        </div>
+      </div>
+    </div>
     
   </div>
 </main>

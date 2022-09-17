@@ -1,7 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
+ 
+* {
+    font-family: 'Orbitron', sans-serif;
+    color: #FFF
+
+}
 
 body{
     background-color: #000000 !important;
+
 }
 
 a {
@@ -44,8 +51,6 @@ nav .logo{
 #nav-1{background-color:rgb(0, 123, 255);}
 #nav-2{background-color:rgb(140, 0, 255);}
 #nav-3{background-color:rgb(255, 0, 60);}
-
-
 
 
 
