@@ -1,0 +1,263 @@
+{% extends "blog/base.html" %}
+{% block title %} About Robotic {% endblock %}
+{% block content %}
+{% load static %}
+
+<!-- Start Banner Area -->
+<div class="banner banner-single-post post-formate post-standard alignwide bg-color-white ">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <!-- Start Single Slide  -->
+                <div class="content-block">
+                    <!-- Start Post Thumbnail  -->
+                    <div class="post-thumbnail">
+                        {% if article.thumbnail %}
+                        <img src="{{ article.thumbnail.url }}" alt="{{ article.headline }}" style="">
+                        {% else %}
+                        <p>No image available</p>
+                        {% endif %}
+                    </div>
+                    <!-- End Post Thumbnail  -->
+                    <!-- Start Post Content  -->
+                    <div class="post-content">
+                        <div class="post-cat">
+                            <div class="post-cat-list">
+                                <a class="hover-flip-item-wrapper" href="#">
+                                    <span class="hover-flip-item">
+                                        <span data-text="FEATURED POST">FEATURED POST</span>
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+                        <h1 class="title">{{article.headline|safe}}</h1>
+                        <!-- Post Meta  -->
+                        <div class="post-meta-wrapper">
+                            <div class="post-meta">
+                                <div class="post-author-avatar border-rounded">
+                                    {% if article.author.description.profile_image %}
+                                    <img src="{{ article.author.description.profile_image.url }}" alt="Profile image" style="max-height: 60px; max-width: 60px;">
+                                    {% else %}
+                                    <span>No profile image</span>
+                                    {% endif %}
+                                </div>
+                                <div class="content">
+                                    <h6 class="post-author-name">
+                                        <a class="hover-flip-item-wrapper" href="#">
+                                            <span class="hover-flip-item">
+                                                <span data-text="{{article.author.first_name}} {{ article.author.last_name }}">{{article.author.first_name}} {{ article.author.last_name }}</span>
+                                            </span>
+                                        </a>
+                                    </h6>
+                                    <ul class="post-meta-list">
+                                        <li>{{article.pub_date}}</li>
+                                        <li>300k Views</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <ul class="social-share-transparent justify-content-end">
+                                <li><a href="{{article.author.description.facebook_link}}"><i class="fab fa-facebook-f"></i></a></li>
+                                <li><a href="{{article.author.description.instagram_link}}"><i class="fab fa-instagram"></i></a></li>
+                                <li><a href="{{article.author.description.twitter_link}}"><i class="fab fa-twitter"></i></a></li>
+                                <li><a href="{{article.author.description.linkedin_link}}"><i class="fas fa-link"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- End Post Content  -->
+                </div>
+                <!-- End Single Slide  -->
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Banner Area -->
+
+<!-- Start Post Single Wrapper  -->
+
+<div class="post-single-wrapper axil-section-gap bg-color-white">
+    <div class="container">
+        <div class="row">
+
+                <div class="col-lg-2"></div>
+                <div class="col-lg-8"><div class="container-fluid">
+                    <div class="axil-post-details">
+                        {{article.content|safe}}
+                
+                
+                        <div class="tagcloud">
+                        {% for tag in article.tags.all %}
+                        <a href="{% url 'articles_by_tag' tag.name %}">{{ tag.name }}</a>
+                        {% endfor %}
+                            
+                        </div>
+                
+                        <div class="social-share-block">
+                            <div class="post-like">
+                                <a href="#"><i class="fal fa-thumbs-up"></i><span>2.2k Like</span></a>
+                            </div>
+                            <ul class="social-icon icon-rounded-transparent md-size">
+                                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                            </ul>
+                        </div>
+                
+                        <!-- Start Author  -->
+                        <div class="about-author">
+                            <div class="media">
+                                <div class="thumbnail">
+                                    <a href="#">
+                                        {% if article.author.description.profile_image %}
+                                        <img src="{{ article.author.description.profile_image.url }}" alt="Profile image"
+                                            style="max-height: 60px; max-width: 60px;">
+                                        {% else %}
+                                        <span>No profile image</span>
+                                        {% endif %} 
+                                    </a>
+                                </div>
+                                <div class="media-body">
+                                    <div class="author-info">
+                                        <h5 class="title">
+                                            <a class="hover-flip-item-wrapper" href="#">
+                                                <span class="hover-flip-item">
+                                                    <span data-text="{{article.author.first_name}} {{ article.author.last_name }}">{{article.author.first_name}} {{ article.author.last_name }}</span>
+                                                </span>
+                                            </a>
+                                        </h5>
+                                        <span class="b3 subtitle">{{article.author.description.position}}</span>
+                                    </div>
+                                    <div class="content">
+                                        <p class="b1 description">{{article.author.description.about_me}}</p>
+                                        <ul class="social-share-transparent size-md">
+                                            <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                            <li><a href="{{article.author.description.instagram_link}}"><i class="fab fa-instagram"></i></a></li>
+                                            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                            <li><a href="#"><i class="far fa-envelope"></i></a></li>
+                                            <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Author  -->
+                
+                        <!-- Start Comment Form Area  -->
+                        <div class="axil-comment-area">
+
+
+                
+                            <!-- Start Comment Respond  -->
+                            <div class="comment-respond"  >
+                                {% if new_comment %}
+                                <div class="alert alert-success" role="alert">
+                                    Your comment is awaiting moderation
+                                </div>
+                                {% else %}
+                                <h4 class="title">Post a comment</h4>
+                                <form method="post">
+                                    {% csrf_token %}
+                                    <p class="comment-notes"><span id="email-notes">Your email address will not be
+                                            published.</span> Required fields are marked <span
+                                            class="required">*</span></p>
+                                    <div class="row row--10">
+                                        <div class="col-lg-6 col-md-4 col-12">
+                                            <div class="form-group">
+                                                <label>Your Name</label>
+                                                {{ comment_form.name }}
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 col-md-4 col-12">
+                                            <div class="form-group">
+                                                <label>Your Email</label>
+                                                {{ comment_form.email }}
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="col-12">
+                                            <div class="form-group">
+                                                <label>Leave a Reply</label>
+                                                {{ comment_form.body }}
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <p class="comment-form-cookies-consent">
+                                                <input id="wp-comment-cookies-consent" name="wp-comment-cookies-consent" type="checkbox" value="yes">
+                                                <label for="wp-comment-cookies-consent">Save my name, email, and
+                                                    website in this browser for the next time I comment.</label>
+                                            </p>
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <div class="form-submit cerchio">
+                                                <input name="submit" type="submit" id="submit" class="axil-button button-rounded" value="Post Comment">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                                
+                                {% endif %}
+                            </div>
+                            <!-- End Comment Respond  -->
+                            <!-- Start Comment Area  -->
+                            <div class="axil-comment-area">
+                                <h4 class="title">{{ comments.count }} Comments</h4>
+                                <ul class="comment-list">
+                                    <!-- Start Single Comment  -->
+                                    {% for comment in comments %}
+                                    <li class="comment border border-dark">
+                                        <div class="comment-body">
+                                            <div class="single-comment">
+                                                <div class="comment-img">
+                                                    <img src="{% static 'images/user.png' %} " alt="Author Image" >
+                                                </div>
+                                                <div class="comment-inner">
+                                                    <h6 class="commenter">
+                                                        <a class="hover-flip-item-wrapper" href="#">
+                                                            <span class="hover-flip-item">
+                                                                <span data-text="{{ comment.name }}">  {{ comment.name }}</span>
+                                                            </span>
+                                                        </a>
+                                                    </h6>
+                                                    <div class="comment-meta">
+                                                        <div class="time-spent">{{ comment.created_on }}</div>
+                                                        <div class="reply-edit">
+                                                            <div class="reply">
+                                                                <a class="comment-reply-link hover-flip-item-wrapper" href="#">
+                                                                    <span class="hover-flip-item">
+                                                                        <span data-text="Reply">Reply</span>
+                                                                    </span>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="comment-text">
+                                                        <p class="b2">{{ comment.body | linebreaks }}</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                      {% endfor %}
+                                    <!-- End Single Comment  -->
+                                </ul>
+                            </div>
+                            <!-- End Comment Area  -->
+                
+                        </div>
+                        <!-- End Comment Form Area  -->
+                
+                
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-2"></div>
+
+        </div>
+    </div>
+</div>
+
+
+<!-- End Post Single Wrapper  -->
+
+
+{% endblock %}

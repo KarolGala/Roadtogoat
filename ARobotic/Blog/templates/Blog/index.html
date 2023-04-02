@@ -1,0 +1,457 @@
+{% extends "blog/base.html" %}
+{% block title %} About Robotic {% endblock %}
+{% block content %}
+{% load static %}
+
+<!-- Start Banner Area -->
+<h1 class="d-none">Home Default Blog</h1>
+<div class="slider-area bg-light pb--20">
+    <div class="axil-slide slider-style-1">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="slider-activation axil-slick-arrow">
+                        <!-- Start Single Slide  -->
+                        {% for article in articles_slider %}
+                        <div class="content-block">
+                            <!-- Start Post Thumbnail  -->
+                            <div class="post-thumbnail">
+                                <a href="{% url 'article' article.id %}">
+                                    {% if article.thumbnail %}
+                                    <img src="{{ article.thumbnail.url }}" alt="{{ article.headline }}" >
+                                    {% else %}
+                                    <p>No image available</p>
+                                    {% endif %}
+                                </a>
+                            </div>
+                            <!-- End Post Thumbnail  -->
+
+                            <!-- Start Post Content  -->
+                            <div class="post-content">
+                                <div class="post-cat">
+                                    <div class="post-cat-list">
+                                        <a class="hover-flip-item-wrapper" href="{% url 'articles_by_category' article.categories %}">
+                                            <span class="hover-flip-item" >
+                                                <span  data-text="{{ article.categories}}">{{ article.categories|safe}}</span>
+                                            </span>
+                                        </a>
+                                    </div>
+                                </div>
+                                <h2 class="title"><a href="{% url 'article' article.id %}">{{ article.headline|safe}}</a></h2>
+                                <!-- Post Meta  -->
+                                <div class="post-meta-wrapper with-button">
+                                    <div class="post-meta">
+                                        <div class="post-author-avatar border-rounded">
+                                        {% if article.author.description.profile_image %}
+                                        <img src="{{ article.author.description.profile_image.url }}" alt="Profile image"
+                                            style="max-height: 60px; max-width: 60px;">
+                                        {% else %}
+                                        <span>No profile image</span>
+                                        {% endif %}
+                                        </div>
+                                        <div class="content">
+                                            <h6 class="post-author-name">
+                                                <a class="hover-flip-item-wrapper" href="author.html">
+                                                    <span class="hover-flip-item">
+                                                        <span data-text="{{  article.author.first_name}} {{ article.author.last_name }}">{{article.author.first_name}} {{ article.author.last_name }}</span>
+                                                    </span>
+                                                </a>
+                                            </h6>
+                                            <ul class="post-meta-list">
+                                                <li>{{ article.pub_date}}</li>
+                                                <li>300k Views</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <ul class="social-share-transparent justify-content-end">
+                                        <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                        <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                                        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                        <li><a href="#"><i class="fas fa-link"></i></a></li>
+                                    </ul>
+                                    <div class="read-more-button cerchio">
+                                        <a class="axil-button button-rounded hover-flip-item-wrapper"
+                                            href="{% url 'article' article.id %}">
+                                            <span class="hover-flip-item">
+                                                <span data-text="Read Post">Read Post</span>
+                                            </span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End Post Content  -->
+                        </div>
+
+                        {% endfor %}
+                        <!-- End Single Slide  -->
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- End Banner Area -->
+
+<!-- Start Tab Area  -->
+<div class="axil-tab-area axil-section-gap bg-color-white">
+    <div class="wrapper">
+        <div class="container">
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-title">
+                        <h2 class="title">New Projects</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <!-- Start Tab Button  -->
+                    <ul class="axil-tab-button nav nav-tabs mt--20" id="axilTab" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link active" id="tab-one" data-bs-toggle="tab" href="#tabone" role="tab"
+                                aria-controls="tab-one" aria-selected="true">Robots</a>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link" id="tab-two" data-bs-toggle="tab" href="#tabtwo" role="tab"
+                                aria-controls="tab-two" aria-selected="false">Programing</a>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link" id="tab-three" data-bs-toggle="tab" href="#tabthree" role="tab"
+                                aria-controls="tab-three" aria-selected="false">Electronics</a>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link" id="tab-four" data-bs-toggle="tab" href="#tabfour" role="tab"
+                                aria-controls="tab-four" aria-selected="false">3D Printing</a>
+                        </li>
+                    </ul>
+                    <!-- End Tab Button  -->
+
+                    <!-- Start Tab Content Wrapper  -->
+                    <div class="tab-content" id="axilTabContent">
+                        <div class="single-tab-content tab-pane fade show active" id="tabone" role="tabpanel"
+                            aria-labelledby="tab-one">
+                            <div class="modern-post-activation slick-layout-wrapper axil-slick-arrow arrow-between-side">
+
+                                <!-- Start Single Post  -->
+                                {% for article in articles_robots %}
+                                <div class="slick-single-layout">
+                                    <div class="content-block modern-post-style text-center content-block-column">
+                                        <div class="post-content">
+                                            <div class="post-cat">
+                                                <div class="post-cat-list">
+                                                    <a class="hover-flip-item-wrapper" href="{% url 'articles_by_category' article.categories %}">
+                                                        <span class="hover-flip-item">
+                                                            <span data-text="{{ article.categories}}">{{ article.categories}}</span>
+                                                        </span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <h4 class="title"><a href="{% url 'article' article.id %}">{{ article.headline}}</a></h4>
+                                        </div>
+                                        <div class="post-thumbnail">
+                                            <a href="{% url 'article' article.id %}">
+                                            {% if article.thumbnail %}
+                                            <img src="{{ article.thumbnail.url }}" alt="{{ article.headline }}" alt="post_image">
+                                            {% else %}
+                                            <p>No image available</p>
+                                            {% endif %}
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                                <!-- End Single Post  -->
+                            </div>
+                        </div>
+
+                        <div class="single-tab-content tab-pane fade" id="tabtwo" role="tabpanel"
+                            aria-labelledby="tab-two">
+                            <div class="modern-post-activation slick-layout-wrapper axil-slick-arrow arrow-between-side">
+
+                                 <!-- Start Single Post  -->
+                                {% for article in articles_programming %}
+                                <div class="slick-single-layout">
+                                    <div class="content-block modern-post-style text-center content-block-column">
+                                        <div class="post-content">
+                                            <div class="post-cat">
+                                                <div class="post-cat-list">
+                                                    <a class="hover-flip-item-wrapper" href="{% url 'articles_by_category' article.categories %}">
+                                                        <span class="hover-flip-item">
+                                                            <span data-text="{{ article.categories}}">{{ article.categories}}</span>
+                                                        </span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <h4 class="title"><a href="{% url 'article' article.id %}">{{ article.headline}}</a></h4>
+                                        </div>
+                                        <div class="post-thumbnail">
+                                            <a href="{% url 'article' article.id %}">
+                                            {% if article.thumbnail %}
+                                            <img src="{{ article.thumbnail.url }}" alt="{{ article.headline }}" alt="post_image">
+                                            {% else %}
+                                            <p>No image available</p>
+                                            {% endif %}
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                                 <!-- End Single Post  -->   
+                            </div>
+                        </div>
+
+                        <div class="single-tab-content tab-pane fade" id="tabthree" role="tabpanel"
+                            aria-labelledby="tab-three">
+                            <div
+                                class="modern-post-activation slick-layout-wrapper axil-slick-arrow arrow-between-side">
+                                {% for article in articles_electronics %}
+                                <div class="slick-single-layout">
+                                    <div class="content-block modern-post-style text-center content-block-column">
+                                        <div class="post-content">
+                                            <div class="post-cat">
+                                                <div class="post-cat-list">
+                                                    <a class="hover-flip-item-wrapper" href="{% url 'articles_by_category' article.categories %}">
+                                                        <span class="hover-flip-item">
+                                                            <span data-text="{{ article.categories}}">{{ article.categories}}</span>
+                                                        </span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <h4 class="title"><a href="{% url 'article' article.id %}">{{ article.headline}}</a></h4>
+                                        </div>
+                                        <div class="post-thumbnail">
+                                            <a href="{% url 'article' article.id %}">
+                                                {% if article.thumbnail %}
+                                                <img src="{{ article.thumbnail.url }}" alt="{{ article.headline }}" alt="post_image">
+                                                {% else %}
+                                                <p>No image available</p>
+                                                {% endif %}
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+
+                        <div class="single-tab-content tab-pane fade" id="tabfour" role="tabpanel"
+                            aria-labelledby="tab-four">
+                            <div
+                                class="modern-post-activation slick-layout-wrapper axil-slick-arrow arrow-between-side">
+                                {% for article in articles_printing %}
+                                <div class="slick-single-layout">
+                                    <div class="content-block modern-post-style text-center content-block-column">
+                                        <div class="post-content">
+                                            <div class="post-cat">
+                                                <div class="post-cat-list">
+                                                    <a class="hover-flip-item-wrapper" href="{% url 'articles_by_category' article.categories %}">
+                                                        <span class="hover-flip-item">
+                                                            <span data-text="{{ article.categories}}">{{ article.categories}}</span>
+                                                        </span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <h4 class="title"><a href="{% url 'article' article.id %}">{{ article.headline}}</a></h4>
+                                        </div>
+                                        <div class="post-thumbnail">
+                                            <a href="{% url 'article' article.id %}">
+                                                {% if article.thumbnail %}
+                                                <img src="{{ article.thumbnail.url }}" alt="{{ article.headline }}" alt="post_image">
+                                                {% else %}
+                                                <p>No image available</p>
+                                                {% endif %}
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Tab Content Wrapper  -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Tab Area  -->
+
+<!-- Start Categories List  -->
+<div class="axil-categories-list axil-section-gap bg-light">
+    <div class="container">
+        <div class="row align-items-center mb--30">
+            <div class="col-lg-6 col-md-8 col-sm-8 col-12">
+                <div class="section-title">
+                    <h2 class="title text-black">Trending Topics</h2>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-4 col-sm-4 col-12">
+                <div class="see-all-topics text-start text-sm-end mt_mobile--20">
+                    <a class="axil-link-button" href="#">See All Topics</a>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <!-- Start List Wrapper  -->
+                <div class="list-categories d-flex flex-wrap">
+                    {% for category in categories %}
+                    <!-- Start Single Category  -->
+                    <div class="single-cat">
+                        <div class="inner">
+                            <a href="{% url 'articles_by_category' category%}">
+                                <div class="thumbnail">
+                                    {% if category.thumbnail %}
+                                        <img src="{{ category.thumbnail.url }}" alt="{{ article.headline }}" alt="post_image">
+                                            {% else %}
+                                            <img src="{% static 'images/post-images/post-sm-05.jpg' %}" alt="post categories images">
+                                    {% endif %}
+                                </div>
+                                <div class="content">
+                                    <h5 class="title">{{category}}</h5>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- End Single Category  -->
+                    {%endfor%}
+                </div>
+                <!-- Start List Wrapper  -->
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Start Categories List  -->
+
+
+<!-- Start Post Grid Area  -->
+
+<!-- End Post Grid Area  -->
+
+<!-- Start Post List Wrapper  -->
+<div class="axil-post-list-area post-listview-visible-color axil-section-gap bg-color-white">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-12 ">
+                <!-- <div class="axil-banner">
+                            <div class="thumbnail">
+                                <a href="#">
+                                    <img class="w-100" src="assets/images/add-banner/banner-01.png" alt="Banner Images">
+                                </a>
+                            </div>
+                        </div> -->
+                <div class="section-title">
+                    <h2 class="title">Arduino & Rasberry Pi</h2>
+                </div>
+                <!-- Start Post List  -->
+                {% for article in articles_arduino%}
+                <div class="content-block post-list-view axil-control is-active mt--30">
+                    <div class="post-thumbnail">
+                        <a href="{% url 'article' article.id %}">
+                            {% if article.thumbnail %}
+                            <img src="{{ article.thumbnail.url }}" alt="{{ article.headline }}" alt="post_image">
+                            {% else %}
+                            <p>No image available</p>
+                            {% endif %}
+                        </a>
+                    </div>
+                    <div class="post-content">
+                        <div class="post-cat">
+                            <div class="post-cat-list">
+                                <a class="hover-flip-item-wrapper" href="{% url 'articles_by_tag' article.categories %}">
+                                    <span class="hover-flip-item">
+                                        <span data-text="{{ article.categories}}">{{ article.categories}}</span>
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+                        <h4 class="title"><a href="{% url 'article' article.id %}">{{ article.headline}} </a></h4>
+                        <div class="post-meta-wrapper">
+                            <div class="post-meta">
+                                <div class="content">
+                                    <h6 class="post-author-name">
+                                        <a class="hover-flip-item-wrapper" href="author.html">
+                                            <span class="hover-flip-item">
+                                                <span data-text="{{  article.author.first_name}} {{ article.author.last_name }}">{{ article.author.first_name}} {{ article.author.last_name }}</span>
+                                            </span>
+                                        </a>
+                                    </h6>
+                                    <ul class="post-meta-list">
+                                        <li>{{ article.pub_date}}</li>
+                                        <li>{{ article.read_time}}</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <ul class="social-share-transparent justify-content-end">
+                                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fas fa-link"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                {%endfor%}
+                {% for article in articles_rasberry%}
+                <div class="content-block post-list-view axil-control is-active mt--30">
+                    <div class="post-thumbnail">
+                        <a href="{% url 'article' article.id %}">
+                            {% if article.thumbnail %}
+                            <img src="{{ article.thumbnail.url }}" alt="{{ article.headline }}" alt="post_image">
+                            {% else %}
+                            <p>No image available</p>
+                            {% endif %}
+                        </a>
+                    </div>
+                    <div class="post-content">
+                        <div class="post-cat">
+                            <div class="post-cat-list">
+                                <a class="hover-flip-item-wrapper" href="{% url 'articles_by_category' article.categories %}">
+                                    <span class="hover-flip-item">
+                                        <span data-text="{{ article.categories}}">{{ article.categories}}</span>
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+                        <h4 class="title"><a href="{% url 'article' article.id %}">{{ article.headline}} </a></h4>
+                        <div class="post-meta-wrapper">
+                            <div class="post-meta">
+                                <div class="content">
+                                    <h6 class="post-author-name">
+                                        <a class="hover-flip-item-wrapper" href="author.html">
+                                            <span class="hover-flip-item">
+                                                <span data-text="{{  article.author.first_name}} {{ article.author.last_name }}">{{ article.author.first_name}} {{ article.author.last_name }}</span>
+                                            </span>
+                                        </a>
+                                    </h6>
+                                    <ul class="post-meta-list">
+                                        <li>{{ article.pub_date}}</li>
+                                        <li>{{ article.read_time}}</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <ul class="social-share-transparent justify-content-end">
+                                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fas fa-link"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                {%endfor%}
+                <!-- End Post List  -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
